@@ -162,7 +162,7 @@ disp('Welcome to the demo code for the LoadRoster library!')
 
 %% fcn_LoadRoster_rosterTableFromCSV
 figNum = 10001;
-titleString = sprintf('DEMO case: call the function to show it operating using VD 2026 roster');
+titleString = sprintf('fcn_LoadRoster_rosterTableFromCSV');
 fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 % figure(figNum); clf;
 
@@ -189,6 +189,31 @@ assert(height(rosterTable)==Nstudents);
 % % Make sure plot opened up
 % assert(isequal(get(gcf,'Number'),figNum));
 
+%% fcn_LoadRoster_createSubmissionFolders
+figNum = 10001;
+titleString = sprintf('fcn_LoadRoster_createSubmissionFolders');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+% figure(figNum); clf;
+
+rootPath = fullfile(pwd,'Data','StudentSubmissions');
+
+if exist(rootPath,'dir')
+    % Remove the directory
+    rmdir(rootPath, 's');
+end
+
+assert(~exist(rootPath,'dir'));
+
+% Load some test data
+rosterTable = fcn_INTERNAL_loadExampleData_createSubmissionFolders;
+
+% Call the function
+fcn_LoadRoster_createSubmissionFolders(rootPath, rosterTable, (figNum))
+
+assert(exist(rootPath,'dir'));
+
+% Remove the directory
+rmdir(rootPath, 's');
 
 %% Functions follow
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
