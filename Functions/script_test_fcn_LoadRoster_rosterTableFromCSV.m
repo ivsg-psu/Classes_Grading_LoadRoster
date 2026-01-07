@@ -37,39 +37,30 @@ fprintf(1,'Figure: 1XXXXXX: DEMO cases\n');
 figNum = 10001;
 titleString = sprintf('DEMO case: call the function to show it operating using VD 2026 roster');
 fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
-figure(figNum); clf;
+% figure(figNum); clf;
 
 % Load some test data
-CSVPath = fcn_INTERNAL_loadExampleData;
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
 
 rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (figNum));
 
 sgtitle(titleString, 'Interpreter','none');
 
 % Check variable types
-assert(iscell(cell_array_of_lap_indices));
-assert(iscell(cell_array_of_entry_indices));
-assert(iscell(cell_array_of_exit_indices));
+assert(istable(rosterTable));
 
 % Check variable sizes
-Nlaps = 3;
-assert(isequal(Nlaps,length(cell_array_of_lap_indices)));
-assert(isequal(Nlaps,length(cell_array_of_entry_indices)));
-assert(isequal(Nlaps,length(cell_array_of_exit_indices)));
+Nstudents = 34;
+assert(height(rosterTable)==Nstudents);
 
-% Check variable values
-% Are the laps starting at expected points?
-assert(isequal(2,min(cell_array_of_lap_indices{1})));
-assert(isequal(102,min(cell_array_of_lap_indices{2})));
-assert(isequal(215,min(cell_array_of_lap_indices{3})));
-
-% Are the laps ending at expected points?
-assert(isequal(88,max(cell_array_of_lap_indices{1})));
-assert(isequal(199,max(cell_array_of_lap_indices{2})));
-assert(isequal(293,max(cell_array_of_lap_indices{3})));
-
-% Make sure plot opened up
-assert(isequal(get(gcf,'Number'),figNum));
+% % Check variable values
+% % Are the laps starting at expected points?
+% assert(isequal(2,min(cell_array_of_lap_indices{1})));
+% assert(isequal(102,min(cell_array_of_lap_indices{2})));
+% assert(isequal(215,min(cell_array_of_lap_indices{3})));
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Test cases start here. These are very simple, usually trivial
@@ -122,45 +113,17 @@ figNum = 80001;
 fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
 figure(figNum); close(figNum);
 
-dataSetNumber = 9;
-
 % Load some test data
-CSVPath = fcn_INTERNAL_loadExampleData(dataSetNumber);
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
 
-start_definition = [10 3 0 0]; % Radius 10, 3 points must pass near [0,0]
-end_definition = [30 3 0 -60]; % Radius 30, 3 points must pass near [0,-60]
-excursion_definition = []; % empty
-
-[cell_array_of_lap_indices, ...
-	cell_array_of_entry_indices, cell_array_of_exit_indices] = ...
-	fcn_LoadRoster_rosterTableFromCSV(...
-	CSVPath,...
-	start_definition,...
-	end_definition,...
-	excursion_definition,...
-	([]));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, ([]));
 
 % Check variable types
-assert(iscell(cell_array_of_lap_indices));
-assert(iscell(cell_array_of_entry_indices));
-assert(iscell(cell_array_of_exit_indices));
+assert(istable(rosterTable));
 
 % Check variable sizes
-Nlaps = 3;
-assert(isequal(Nlaps,length(cell_array_of_lap_indices)));
-assert(isequal(Nlaps,length(cell_array_of_entry_indices)));
-assert(isequal(Nlaps,length(cell_array_of_exit_indices)));
-
-% Check variable values
-% Are the laps starting at expected points?
-assert(isequal(2,min(cell_array_of_lap_indices{1})));
-assert(isequal(102,min(cell_array_of_lap_indices{2})));
-assert(isequal(215,min(cell_array_of_lap_indices{3})));
-
-% Are the laps ending at expected points?
-assert(isequal(88,max(cell_array_of_lap_indices{1})));
-assert(isequal(199,max(cell_array_of_lap_indices{2})));
-assert(isequal(293,max(cell_array_of_lap_indices{3})));
+Nstudents = 34;
+assert(height(rosterTable)==Nstudents);
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
@@ -172,45 +135,17 @@ figNum = 80002;
 fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
 figure(figNum); close(figNum);
 
-dataSetNumber = 9;
-
 % Load some test data
-CSVPath = fcn_INTERNAL_loadExampleData(dataSetNumber);
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
 
-start_definition = [10 3 0 0]; % Radius 10, 3 points must pass near [0,0]
-end_definition = [30 3 0 -60]; % Radius 30, 3 points must pass near [0,-60]
-excursion_definition = []; % empty
-
-[cell_array_of_lap_indices, ...
-	cell_array_of_entry_indices, cell_array_of_exit_indices] = ...
-	fcn_LoadRoster_rosterTableFromCSV(...
-	CSVPath,...
-	start_definition,...
-	end_definition,...
-	excursion_definition,...
-	(-1));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
 
 % Check variable types
-assert(iscell(cell_array_of_lap_indices));
-assert(iscell(cell_array_of_entry_indices));
-assert(iscell(cell_array_of_exit_indices));
+assert(istable(rosterTable));
 
 % Check variable sizes
-Nlaps = 3;
-assert(isequal(Nlaps,length(cell_array_of_lap_indices)));
-assert(isequal(Nlaps,length(cell_array_of_entry_indices)));
-assert(isequal(Nlaps,length(cell_array_of_exit_indices)));
-
-% Check variable values
-% Are the laps starting at expected points?
-assert(isequal(2,min(cell_array_of_lap_indices{1})));
-assert(isequal(102,min(cell_array_of_lap_indices{2})));
-assert(isequal(215,min(cell_array_of_lap_indices{3})));
-
-% Are the laps ending at expected points?
-assert(isequal(88,max(cell_array_of_lap_indices{1})));
-assert(isequal(199,max(cell_array_of_lap_indices{2})));
-assert(isequal(293,max(cell_array_of_lap_indices{3})));
+Nstudents = 34;
+assert(height(rosterTable)==Nstudents);
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
@@ -223,45 +158,24 @@ fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
 figure(figNum);
 close(figNum);
 
-dataSetNumber = 9;
-
 % Load some test data
-CSVPath = fcn_INTERNAL_loadExampleData(dataSetNumber);
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
 
-start_definition = [10 3 0 0]; % Radius 10, 3 points must pass near [0,0]
-end_definition = [30 3 0 -60]; % Radius 30, 3 points must pass near [0,-60]
-excursion_definition = []; % empty
-
-
-Niterations = 50;
+Niterations = 10;
 
 % Do calculation without pre-calculation
 tic;
 for ith_test = 1:Niterations
-	% Call the function
-	[cell_array_of_lap_indices, ...
-		cell_array_of_entry_indices, cell_array_of_exit_indices] = ...
-		fcn_LoadRoster_rosterTableFromCSV(...
-		CSVPath,...
-		start_definition,...
-		end_definition,...
-		excursion_definition,...
-		([]));
+    % Call the function
+    rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, ([]));
 end
 slow_method = toc;
 
 % Do calculation with pre-calculation, FAST_MODE on
 tic;
 for ith_test = 1:Niterations
-	% Call the function
-	[cell_array_of_lap_indices, ...
-		cell_array_of_entry_indices, cell_array_of_exit_indices] = ...
-		fcn_LoadRoster_rosterTableFromCSV(...
-		CSVPath,...
-		start_definition,...
-		end_definition,...
-		excursion_definition,...
-		(-1));
+    % Call the function
+    rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
 end
 fast_method = toc;
 
@@ -323,7 +237,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
 %% fcn_INTERNAL_loadExampleData
-function CSVpath = fcn_INTERNAL_loadExampleData
+function CSVpath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV
 
 % Use the last data
 CSVpath = fullfile(cd,'Data','roster_2026_01_06.csv');

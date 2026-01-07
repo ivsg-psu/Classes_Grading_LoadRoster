@@ -160,6 +160,35 @@ setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
 disp('Welcome to the demo code for the LoadRoster library!')
 
 
+%% fcn_LoadRoster_rosterTableFromCSV
+figNum = 10001;
+titleString = sprintf('DEMO case: call the function to show it operating using VD 2026 roster');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+% figure(figNum); clf;
+
+% Load some test data
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (figNum));
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(istable(rosterTable));
+
+% Check variable sizes
+Nstudents = 34;
+assert(height(rosterTable)==Nstudents);
+
+% % Check variable values
+% % Are the laps starting at expected points?
+% assert(isequal(2,min(cell_array_of_lap_indices{1})));
+% assert(isequal(102,min(cell_array_of_lap_indices{2})));
+% assert(isequal(215,min(cell_array_of_lap_indices{3})));
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),figNum));
+
 
 %% Functions follow
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -200,3 +229,10 @@ end
 
 end % Ends fcn_INTERNAL_clearUtilitiesFromPathAndFolders
 
+
+%% fcn_INTERNAL_loadExampleData
+function CSVpath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV
+
+% Use the last data
+CSVpath = fullfile(cd,'Data','roster_2026_01_06.csv');
+end % Ends fcn_INTERNAL_loadExampleData

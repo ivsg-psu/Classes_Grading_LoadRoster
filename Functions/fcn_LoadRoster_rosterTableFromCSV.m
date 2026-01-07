@@ -74,9 +74,9 @@ end
 if flag_do_debug % If debugging is on, print on entry/exit to the function
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_figNum = 999978; 
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_figNum = []; 
+    debug_figNum = []; %#ok<NASGU>
 end
 
 %% check input arguments?
@@ -138,7 +138,7 @@ flag_do_plots = 0; % Default is to NOT show plots
 if (0==flag_max_speed) && (MAX_NARGIN == nargin) 
     temp = varargin{end};
     if ~isempty(temp) % Did the user NOT give an empty figure number?
-        figNum = temp;
+        figNum = temp; %#ok<NASGU>
         flag_do_plots = 1;
     end
 end
@@ -155,7 +155,36 @@ end
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-rosterTable = readtable(CSVPath);
+% opts = delimitedTextImportOptions('NumVariables',5);
+% opts.VariableNames
+
+opts = detectImportOptions(CSVPath);
+
+opts.VariableNames{1} = 'FullName';
+opts.VariableNames{2} = 'CanvasIDNumber';
+opts.VariableNames{3} = 'PSUEmail';
+
+
+% Make sure student number is an integer
+opts = setvartype(opts,{'CanvasIDNumber'},'uint64');
+
+rosterTable_raw = readtable(CSVPath,opts);
+
+Nstudents = height(rosterTable_raw);
+for ith_student = 1:Nstudents
+    thisFullName = rosterTable_raw.('FullName'){ith_student};
+    separatedNames = fcn_DebugTools_parseStringIntoCells(thisFullName);
+    thisFirstName = separatedNames{1};
+    thisLastName = separatedNames{end};
+    rosterTable_raw.('LastName'){ith_student} = thisLastName;
+    rosterTable_raw.('FirstName'){ith_student} = thisFirstName;
+    
+end
+
+rosterTable_reordered = movevars(rosterTable_raw, 'FirstName', 'Before', 'FullName');
+rosterTable_reordered = movevars(rosterTable_reordered, 'LastName', 'Before', 'FirstName');
+
+rosterTable = rosterTable_reordered;
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +198,8 @@ rosterTable = readtable(CSVPath);
 %                           |___/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if flag_do_plots
-	% 
+	
+    disp(rosterTable);
     % % plot the final XY result
     % figure(figNum);
     % clf;
