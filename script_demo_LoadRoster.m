@@ -1,7 +1,9 @@
 
 %% Introduction to and Purpose of the Code
 % This is the explanation of the code that can be found by running
+%
 %       script_demo_LoadRoster.m
+%
 % This is a script to demonstrate the functions within the LoadRoster code
 % library. This code repo is typically located at:
 %
@@ -34,8 +36,22 @@
 % 
 % 2026_01_06 by Sean Brennan, sbrennan@psu.edu
 % - Created the first version for use in the Vehicle Dynamics course
+% - Added fcn_LoadRoster_rosterTableFromCSV
+%   % * converts roster into MATLAB table
+%   % * separates full name into first and last names
+% - Added fcn_LoadRoster_createSubmissionFolders
+%   % * creates a folder for each student based on student number
+%
+% 2026_01_09 by Sean Brennan, sbrennan@psu.edu
+% - Added fcn_LoadRoster_sendEmail
+%   % * Automatically sends an email from prof.brennan@gmail.com to
+%   %   % selected recipients.
+%   % * Includes a p-coded secure function that sets the passcode for
+%   %   % authenticated apps (note: Dr. Brennan maintains source copy)
+%   % * Allows attachments
+%   % * Example script shows how to include self-referenced script as an 
+%   %   % attachment, and how to add hyperlinks and line breaks.
 % (new release)
-
 
 % TO-DO:
 % - 2026_01_06 by Sean Brennan, sbrennan@psu.edu
@@ -190,7 +206,7 @@ assert(height(rosterTable)==Nstudents);
 % assert(isequal(get(gcf,'Number'),figNum));
 
 %% fcn_LoadRoster_createSubmissionFolders
-figNum = 10001;
+figNum = 10002;
 titleString = sprintf('fcn_LoadRoster_createSubmissionFolders');
 fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 % figure(figNum); clf;
@@ -214,6 +230,27 @@ assert(exist(rootPath,'dir'));
 
 % Remove the directory
 rmdir(rootPath, 's');
+
+%% fcn_LoadRoster_sendEmail
+figNum = 10003;
+titleString = sprintf('fcn_LoadRoster_sendEmail');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+
+
+recipient = 'sbrennan@psu.edu';
+subject = 'Hello From MATLAB!';
+body = ['This email was sent automatically using the sendmail function.' 10 ...
+    'Here is an example including a <A HREF=<http://www.mathworks.com>>HyperLink</A>'];
+
+st = dbstack; %#ok<*UNRCH>
+scriptPath = which(st.file);
+scriptName = st.file;
+% functionName = extractAfter(scriptName,'script_test_');
+% functionPath = which(functionName);
+
+attachments = {scriptPath};
+
+fcn_LoadRoster_sendEmail( recipient, subject, body, attachments, (figNum))
 
 %% Functions follow
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,9 +292,21 @@ end
 end % Ends fcn_INTERNAL_clearUtilitiesFromPathAndFolders
 
 
-%% fcn_INTERNAL_loadExampleData
+%% fcn_INTERNAL_loadExampleData_rosterTableFromCSV
 function CSVpath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV
 
 % Use the last data
 CSVpath = fullfile(cd,'Data','roster_2026_01_06.csv');
-end % Ends fcn_INTERNAL_loadExampleData
+end % Ends fcn_INTERNAL_loadExampleData_rosterTableFromCSV
+
+
+
+%% fcn_INTERNAL_loadExampleData_createSubmissionFolders
+function rosterTable = fcn_INTERNAL_loadExampleData_createSubmissionFolders
+
+% Use the last data
+CSVPath = fullfile(cd,'Data','roster_2026_01_06.csv');
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
+
+
+end % Ends fcn_INTERNAL_loadExampleData_createSubmissionFolders

@@ -214,6 +214,8 @@ end
 % List missed files
 indicies_missedFiles_flags_RAW = flags_isFile.*(0==flags_isMfile);
 indicies_missedFiles_flags = fcn_INTERNAL_removeFromList(indicies_missedFiles_flags_RAW, fileListFunctionsFolderNoDirectories,'script_test_all_functions');
+indicies_missedFiles_flags = fcn_INTERNAL_removeFromList(indicies_missedFiles_flags, fileListFunctionsFolderNoDirectories,'.p');
+indicies_missedFiles_flags = fcn_INTERNAL_removeFromList(indicies_missedFiles_flags, fileListFunctionsFolderNoDirectories,'.asv');
 indicies_missedFiles = find(indicies_missedFiles_flags);
 if ~isempty(indicies_missedFiles)
     fcn_DebugTools_cprintf('*red','The following files were found, but do not seem to be repo functions or scripts:\n');
@@ -226,6 +228,8 @@ end
 % List mfiles that are not testing scripts or functions
 indicies_missedMfiles_flags_RAW = flags_isMfile.*(0==flags_isMfileFunction).*(0==flags_isMfileTestingScript);
 indicies_missedMfiles_flags = fcn_INTERNAL_removeFromList(indicies_missedMfiles_flags_RAW, fileListFunctionsFolderNoDirectories,'script_test_all_functions');
+indicies_missedMfiles_flags = fcn_INTERNAL_removeFromList(indicies_missedMfiles_flags, fileListFunctionsFolderNoDirectories,'.p');
+indicies_missedMfiles_flags = fcn_INTERNAL_removeFromList(indicies_missedMfiles_flags, fileListFunctionsFolderNoDirectories,'.asv');
 indicies_missedMfiles = find(indicies_missedMfiles_flags);
 
 if ~isempty(indicies_missedMfiles)
