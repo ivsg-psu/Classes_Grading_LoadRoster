@@ -1,4 +1,3 @@
-
 %% Introduction to and Purpose of the Code
 % This is the explanation of the code that can be found by running
 %
@@ -52,6 +51,11 @@
 %   % * Example script shows how to include self-referenced script as an 
 %   %   % attachment, and how to add hyperlinks and line breaks.
 % (new release)
+%
+% 2026_01_14 by Sean Brennan, sbrennan@psu.edu
+% - Updated download of class roster for ME 452
+% (new release)
+
 
 % TO-DO:
 % - 2026_01_06 by Sean Brennan, sbrennan@psu.edu
@@ -305,7 +309,7 @@ end % Ends fcn_INTERNAL_loadExampleData_rosterTableFromCSV
 function rosterTable = fcn_INTERNAL_loadExampleData_createSubmissionFolders
 
 % Use the last data
-CSVPath = fullfile(cd,'Data','roster_2026_01_06.csv');
+CSVPath = fullfile(cd,'Data','roster_2026_01_14.csv');
 rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
 
 
