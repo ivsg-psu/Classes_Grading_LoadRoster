@@ -1,7 +1,10 @@
 function fcn_LoadRoster_sendEmail( recipient, subject, body, attachments, varargin)
 %% fcn_LoadRoster_sendEmail
 % fcn_LoadRoster_sendEmail sends an email using MS Outlook.
-% Allows users to specify body, attachments, etc.
+% Allows users to specify body, attachments, etc. Passwords are set in
+% fcn_LoadRoster_SECURE_setPassword, a compiled version of a function that
+% Dr. B maintains in his email. To use this code on a computer that is not
+% approved, the function will need to be edited.
 %
 % NOTE: The format of the function is similar to the SENDMAIL command.
 % See:
@@ -48,6 +51,10 @@ function fcn_LoadRoster_sendEmail( recipient, subject, body, attachments, vararg
 %
 % 2026_01_09 by Sean Brennan, sbrennan@psu.edu
 % - wrote the code, using fcn_send+OutlookMail in AutoExam repo as starter
+%
+% 2026_01_15 by Sean Brennan, sbrennan@psu.edu
+% - Updated fcn_LoadRoster_SECURE_setPassword to show help, work on Dr. B's
+%   % other computers, and emailed file to Dr. B
 
 % TO-DO:
 %

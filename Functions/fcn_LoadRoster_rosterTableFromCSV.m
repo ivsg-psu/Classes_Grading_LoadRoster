@@ -5,7 +5,7 @@ function rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, varargin)
 %
 % FORMAT:
 %
-%      rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (figNum));
+%      rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (figNum));
 %
 % INPUTS:
 %
@@ -13,6 +13,10 @@ function rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, varargin)
 %      CSV file
 %
 %      (OPTIONAL INPUTS)
+%
+%      emailForAddedTestStudents: an email string. If set to something other
+%      than a blank value (default), creates three test students with this
+%      same email.
 %
 %      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
@@ -37,7 +41,12 @@ function rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, varargin)
 % REVISION HISTORY:
 %
 % 2026_01_06 by Sean Brennan, sbrennan@psu.edu
-% - wrote the code originally, using breakDataIntoLaps as starter
+% - Wrote the code originally, using breakDataIntoLaps as starter
+%
+% 2026_01_15 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_LoadRoster_rosterTableFromCSV
+%   % * Added the emailForAddedTestStudents input option
+%   % * Automatically creates three test students for use in debugging
 
 % TO-DO:
 %
@@ -51,7 +60,7 @@ function rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, varargin)
 % Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
-MAX_NARGIN = 2; % The largest Number of argument inputs to the function
+MAX_NARGIN = 3; % The largest Number of argument inputs to the function
 flag_max_speed = 0; % The default. This runs code with all error checking
 if (nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % Flag to plot the results for debugging
@@ -101,37 +110,18 @@ if 0==flag_max_speed
     end
 end
 
+% Does the user want to specify the emailForAddedTestStudents?
+% Set defaults first:
+emailForAddedTestStudents =''; % Default case
+% Check for user input
+if 2 <= nargin
+    temp = varargin{1};
+    if ~isempty(temp)
+        % Set the emailForAddedTestStudents
+        emailForAddedTestStudents = temp;
+    end
+end
 
-% % Set the start values
-% [flag_start_is_a_point_type, start_zone_definition] = fcn_Laps_checkZoneType(start_zone_definition, 'start_definition', -1);
-% 
-% 
-% % The following area checks for variable argument inputs (varargin)
-% 
-% % Does the user want to specify the end_definition?
-% % Set defaults first:
-% end_zone_definition = start_zone_definition; % Default case
-% flag_end_is_a_point_type = flag_start_is_a_point_type; % Inheret the start case
-% % Check for user input
-% if 3 <= nargin
-%     temp = varargin{1};
-%     if ~isempty(temp)
-%         % Set the end values
-%         [flag_end_is_a_point_type, end_zone_definition] = fcn_Laps_checkZoneType(temp, 'end_definition', -1);
-%     end
-% end
-% 
-% % Does the user want to specify excursion_definition?
-% flag_use_excursion_definition = 0; % Default case
-% flag_excursion_is_a_point_type = 1; % Default case
-% if 4 <= nargin
-%     temp = varargin{2};
-%     if ~isempty(temp)
-%         % Set the excursion values
-%         [flag_excursion_is_a_point_type, excursion_definition] = fcn_Laps_checkZoneType(temp, 'excursion_definition',-1);
-%         flag_use_excursion_definition = 1;
-%     end
-% end
 
 % Does user want to show the plots?
 flag_do_plots = 0; % Default is to NOT show plots
@@ -169,6 +159,28 @@ opts.VariableNames{3} = 'PSUEmail';
 opts = setvartype(opts,{'CanvasIDNumber'},'uint64');
 
 rosterTable_raw = readtable(CSVPath,opts);
+
+if ~isempty(emailForAddedTestStudents)
+
+	% Duplicate the last row
+	rosterTable_raw(end+1,:) = rosterTable_raw(end,:);
+	rosterTable_raw{end,'FullName'} = {'Awesome zzz_Astudent'};
+	rosterTable_raw{end,'CanvasIDNumber'} = 9000000;
+	rosterTable_raw{end,'PSUEmail'} = {emailForAddedTestStudents};
+
+	% Duplicate the last row
+	rosterTable_raw(end+1,:) = rosterTable_raw(end,:);
+	rosterTable_raw{end,'FullName'} = {'Baddie zzz_BadStudent'};
+	rosterTable_raw{end,'CanvasIDNumber'} = 9111111;
+	rosterTable_raw{end,'PSUEmail'} = {emailForAddedTestStudents};
+
+	% Duplicate the last row
+	rosterTable_raw(end+1,:) = rosterTable_raw(end,:);
+	rosterTable_raw{end,'FullName'} = {'Common zzz_Cstudent'};
+	rosterTable_raw{end,'CanvasIDNumber'} = 9222222;
+	rosterTable_raw{end,'PSUEmail'} = {emailForAddedTestStudents};
+
+end
 
 Nstudents = height(rosterTable_raw);
 for ith_student = 1:Nstudents

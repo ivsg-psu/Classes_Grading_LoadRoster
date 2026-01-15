@@ -54,6 +54,17 @@
 %
 % 2026_01_14 by Sean Brennan, sbrennan@psu.edu
 % - Updated download of class roster for ME 452
+% 
+% 2026_01_15 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_LoadRoster_rosterTableFromCSV
+%   % * Added the emailForAddedTestStudents input option
+%   % * Automatically creates three test students for use in debugging
+% - Updated fcn_LoadRoster_SECURE_setPassword 
+%   % * Now will show help, 
+%   % * Modified entries to work on Dr. B's other computers, 
+%   % * Emailed source file to Dr. Bs Gmail and Outlook (almost lost this!)
+% - Updated script_test_all_functions to new version
+% - Fixed scripts so that test_all passes
 % (new release)
 
 
@@ -188,8 +199,9 @@ fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 
 % Load some test data
 CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = 'snb10@psu.edu';
 
-rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (figNum));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (figNum));
 
 sgtitle(titleString, 'Interpreter','none');
 
@@ -310,7 +322,8 @@ function rosterTable = fcn_INTERNAL_loadExampleData_createSubmissionFolders
 
 % Use the last data
 CSVPath = fullfile(cd,'Data','roster_2026_01_14.csv');
-rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
+emailForAddedTestStudents = 'snb10@psu.edu';
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (-1));
 
 
 end % Ends fcn_INTERNAL_loadExampleData_createSubmissionFolders

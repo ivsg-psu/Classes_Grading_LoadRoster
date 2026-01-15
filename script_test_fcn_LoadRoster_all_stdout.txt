@@ -749,3 +749,165 @@ __________
 Done script_test_fcn_LoadRoster_sendEmail
 __________
 
+[Warning: cprintf formatting is not displayed when diary is active] 
+[> In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('cprintf')" style="font-weight:bold">cprintf</a>
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_DebugTools_cprintf', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Utilities\DebugTools_v2026_01_11\Functions\fcn_DebugTools_cprintf.m', 209)" style="font-weight:bold">fcn_DebugTools_cprintf</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Utilities\DebugTools_v2026_01_11\Functions\fcn_DebugTools_cprintf.m',209,0)">line 209</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_all_functions', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\script_test_all_functions.m', 56)" style="font-weight:bold">script_test_all_functions</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\script_test_all_functions.m',56,0)">line 56</a>)] 
+Checking root folder:
+		Checking that there is 1 m-file in root folder: PASSED.
+	Checking that there is a demo file, PASSED.
+	Checking that there is a README.md file: PASSED.
+	Checking that there is a PASSED.
+	Checking that there is a PASSED.
+	Checking that there is a PASSED.
+	Checking that there is a PASSED.
+	Checking that there is a PASSED.
+Checking main demo file:
+		Checking that it contains "PASSED.
+	Checking that it contains "PASSED.
+	Checking that it contains "PASSED.
+	Checking that it contains "PASSED.
+	Checking that it contains "PASSED.
+
+SUMMARY OF FOUND FILES: 
+The following scripts were found that will be tested:
+	There are 	script_test_fcn_LoadRoster_createSubmissionFolders.m
+	script_test_fcn_LoadRoster_rosterTableFromCSV.m
+	script_test_fcn_LoadRoster_sendEmail.m
+
+STARTING TESTS:
+Testing script: Running script_test_fcn_LoadRoster_createSubmissionFolders
+.Figure: 1XXXXXX: DEMO cases
+.Figure 10001: DEMO case: call the function to show it operating using VD 2026 roster
+.Figure: 2XXXXXX: TEST mode cases
+.Figure: 8XXXXXX: FAST mode cases
+......
+Done script_test_fcn_LoadRoster_createSubmissionFolders
+__________
+
+Testing script: Running script_test_fcn_LoadRoster_rosterTableFromCSV
+.Figure: 1XXXXXX: DEMO cases
+.Figure 10001: DEMO case: call the function to show it operating using VD 2026 roster
+        <strong>LastName</strong>          <strong>FirstName</strong>                   <strong>FullName</strong>                  <strong>CanvasIDNumber</strong>         <strong>PSUEmail</strong>            <strong>Email</strong>                                         <strong>SectionName</strong>                                   
+    <strong>________________</strong>    <strong>_____________</strong>    <strong>___________________________________</strong>    <strong>______________</strong>    <strong>___________________</strong>    <strong>__________</strong>    <strong>________________________________________________________________________________</strong>
+
+    {'Benedetto'   }    {'Joseph'   }    {'Joseph Benedetto'               }       7177498        {'jgb5486@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Rivers'      }    {'Elijah'   }    {'Elijah Rivers'                  }       7208464        {'ejr5879@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Marion'      }    {'Dustin'   }    {'Dustin Marion'                  }       7147801        {'dkm5991@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Dixon'       }    {'Kiyoshi'  }    {'Kiyoshi Dixon'                  }       7147244        {'kbd5482@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Jones'       }    {'Adam'     }    {'Adam Jones'                     }       7139248        {'arj5438@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hackenberger'}    {'Nathanael'}    {'Nathanael Hackenberger'         }       7140225        {'nqh5320@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Bonaduce'    }    {'Collin'   }    {'Collin Bonaduce'                }       7144929        {'cfb5751@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Demark'      }    {'Cooper'   }    {'Cooper Demark'                  }       7154178        {'cjd6295@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Dangio'      }    {'Anthony'  }    {'Anthony Dangio'                 }       7131639        {'abd5904@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Multazam'    }    {'Muhammad' }    {'Muhammad Hadif Muhamad Multazam'}       7146660        {'mkm7174@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Barron'      }    {'Liam'     }    {'Liam Barron'                    }       7143602        {'ltb5209@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Toth'        }    {'Brian'    }    {'Brian Toth'                     }       7154246        {'brt5272@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Jamison'     }    {'Landen'   }    {'Landen Jamison'                 }       7145201        {'ljj5288@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Johnson'     }    {'Collin'   }    {'Collin Johnson'                 }       7157523        {'cpj5287@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Pohl'        }    {'Adam'     }    {'Adam Pohl'                      }       7155963        {'acp5776@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Faber'       }    {'Nathan'   }    {'Nathan Faber'                   }       7201186        {'nlf5208@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Kelly'       }    {'Jack'     }    {'Jack Kelly'                     }       7130874        {'jak6829@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Alnami'      }    {'Saud'     }    {'Saud Alnami'                    }       7213301        {'sxa6099@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Wulff'       }    {'Ryland'   }    {'Ryland Wulff'                   }       7149505        {'rmw6001@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Fernandez'   }    {'Precious' }    {'Precious Fernandez'             }       7210153        {'pkf5128@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Andress'     }    {'Thomas'   }    {'Thomas Andress'                 }       7150366        {'tga5090@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Murugan'     }    {'Vikram'   }    {'Vikram Murugan'                 }       7145438        {'vkm5215@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Vanatta'     }    {'Grant'    }    {'Grant Vanatta'                  }       7145039        {'gev5057@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Lierop'      }    {'Lucas'    }    {'Lucas van Lierop'               }       7148883        {'lqv5178@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Staronka'    }    {'Aaron'    }    {'Aaron Staronka'                 }       7155284        {'ajs9524@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Kumar'       }    {'Suryansh' }    {'Suryansh Kumar'                 }       7145895        {'spk6106@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Horenci'     }    {'Ryan'     }    {'Ryan Horenci'                   }       7136550        {'rph5573@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Zhou'        }    {'Casey'    }    {'Casey Zhou'                     }       7158522        {'cfz5195@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Olson'       }    {'Andrew'   }    {'Andrew Olson'                   }       7200730        {'alo5356@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hodinko'     }    {'Scott'    }    {'Scott Hodinko'                  }       7147579        {'sah6436@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Cavada'      }    {'Max'      }    {'Max Cavada'                     }       7148015        {'mcc5985@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Grill'       }    {'Edward'   }    {'Edward Grill'                   }       7157476        {'emg6130@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Skrincosky'  }    {'Benjamin' }    {'Benjamin Skrincosky'            }       7156633        {'bms6863@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hayes'       }    {'Kaelea'   }    {'Kaelea Hayes'                   }       7079598        {'kxh1031@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+
+.Figure 10002: DEMO case: call the function with non-empty emailForAddedTestStudents
+         <strong>LastName</strong>           <strong>FirstName</strong>                   <strong>FullName</strong>                  <strong>CanvasIDNumber</strong>         <strong>PSUEmail</strong>            <strong>Email</strong>                                         <strong>SectionName</strong>                                   
+    <strong>__________________</strong>    <strong>_____________</strong>    <strong>___________________________________</strong>    <strong>______________</strong>    <strong>___________________</strong>    <strong>__________</strong>    <strong>________________________________________________________________________________</strong>
+
+    {'Benedetto'     }    {'Joseph'   }    {'Joseph Benedetto'               }       7177498        {'jgb5486@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Rivers'        }    {'Elijah'   }    {'Elijah Rivers'                  }       7208464        {'ejr5879@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Marion'        }    {'Dustin'   }    {'Dustin Marion'                  }       7147801        {'dkm5991@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Dixon'         }    {'Kiyoshi'  }    {'Kiyoshi Dixon'                  }       7147244        {'kbd5482@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Jones'         }    {'Adam'     }    {'Adam Jones'                     }       7139248        {'arj5438@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hackenberger'  }    {'Nathanael'}    {'Nathanael Hackenberger'         }       7140225        {'nqh5320@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Bonaduce'      }    {'Collin'   }    {'Collin Bonaduce'                }       7144929        {'cfb5751@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Demark'        }    {'Cooper'   }    {'Cooper Demark'                  }       7154178        {'cjd6295@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Dangio'        }    {'Anthony'  }    {'Anthony Dangio'                 }       7131639        {'abd5904@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Multazam'      }    {'Muhammad' }    {'Muhammad Hadif Muhamad Multazam'}       7146660        {'mkm7174@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Barron'        }    {'Liam'     }    {'Liam Barron'                    }       7143602        {'ltb5209@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Toth'          }    {'Brian'    }    {'Brian Toth'                     }       7154246        {'brt5272@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Jamison'       }    {'Landen'   }    {'Landen Jamison'                 }       7145201        {'ljj5288@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Johnson'       }    {'Collin'   }    {'Collin Johnson'                 }       7157523        {'cpj5287@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Pohl'          }    {'Adam'     }    {'Adam Pohl'                      }       7155963        {'acp5776@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Faber'         }    {'Nathan'   }    {'Nathan Faber'                   }       7201186        {'nlf5208@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Kelly'         }    {'Jack'     }    {'Jack Kelly'                     }       7130874        {'jak6829@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Alnami'        }    {'Saud'     }    {'Saud Alnami'                    }       7213301        {'sxa6099@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Wulff'         }    {'Ryland'   }    {'Ryland Wulff'                   }       7149505        {'rmw6001@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Fernandez'     }    {'Precious' }    {'Precious Fernandez'             }       7210153        {'pkf5128@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Andress'       }    {'Thomas'   }    {'Thomas Andress'                 }       7150366        {'tga5090@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Murugan'       }    {'Vikram'   }    {'Vikram Murugan'                 }       7145438        {'vkm5215@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Vanatta'       }    {'Grant'    }    {'Grant Vanatta'                  }       7145039        {'gev5057@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Lierop'        }    {'Lucas'    }    {'Lucas van Lierop'               }       7148883        {'lqv5178@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Staronka'      }    {'Aaron'    }    {'Aaron Staronka'                 }       7155284        {'ajs9524@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Kumar'         }    {'Suryansh' }    {'Suryansh Kumar'                 }       7145895        {'spk6106@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Horenci'       }    {'Ryan'     }    {'Ryan Horenci'                   }       7136550        {'rph5573@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Zhou'          }    {'Casey'    }    {'Casey Zhou'                     }       7158522        {'cfz5195@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Olson'         }    {'Andrew'   }    {'Andrew Olson'                   }       7200730        {'alo5356@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hodinko'       }    {'Scott'    }    {'Scott Hodinko'                  }       7147579        {'sah6436@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Cavada'        }    {'Max'      }    {'Max Cavada'                     }       7148015        {'mcc5985@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Grill'         }    {'Edward'   }    {'Edward Grill'                   }       7157476        {'emg6130@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Skrincosky'    }    {'Benjamin' }    {'Benjamin Skrincosky'            }       7156633        {'bms6863@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'Hayes'         }    {'Kaelea'   }    {'Kaelea Hayes'                   }       7079598        {'kxh1031@psu.edu'}    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'zzz_Astudent'  }    {'Awesome'  }    {'Awesome zzz_Astudent'           }       9000000        {'snb10@psu.edu'  }    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'zzz_BadStudent'}    {'Baddie'   }    {'Baddie zzz_BadStudent'          }       9111111        {'snb10@psu.edu'  }    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+    {'zzz_Cstudent'  }    {'Common'   }    {'Common zzz_Cstudent'            }       9222222        {'snb10@psu.edu'  }    {0×0 char}    {'ME 452, Section 001: Vehicle Dynamics (22611--UP---P-ME------452-------001-)'}
+
+.Figure: 2XXXXXX: TEST mode cases
+.Figure: 8XXXXXX: FAST mode cases
+.Figure: 80001: FAST mode, empty figNum
+.Figure: 80002: FAST mode, figNum=-1
+.Figure: 80003: FAST mode comparisons
+.. ....
+Done script_test_fcn_LoadRoster_rosterTableFromCSV
+__________
+
+Testing script: Running script_test_fcn_LoadRoster_sendEmail
+.Figure: 1XXXXXX: DEMO cases
+.Figure 10001: DEMO case: basic example call
+
+================================================================================
+<strong>Error occurred in script_test_fcn_LoadRoster_sendEmail/DEMOCase_BasicExampleCall and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    ''
+    --------------
+    Error Details:
+    --------------
+    Error using fcn_LoadRoster_SECURE_setPassword
+    This computer is not authorized to send emails using the prof.brennan account
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_LoadRoster_sendEmail', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\fcn_LoadRoster_sendEmail.m', 146)" style="font-weight:bold">fcn_LoadRoster_sendEmail</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\fcn_LoadRoster_sendEmail.m',146,0)">line 146</a>)
+    props = fcn_LoadRoster_SECURE_setPassword(props); %#ok<NASGU>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_LoadRoster_sendEmail', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\script_test_fcn_LoadRoster_sendEmail.m', 60)" style="font-weight:bold">script_test_fcn_LoadRoster_sendEmail</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\Classes\Grading\LoadRoster\Functions\script_test_fcn_LoadRoster_sendEmail.m',60,0)">line 60</a>)
+    fcn_LoadRoster_sendEmail( recipient, subject, body, attachments, (figNum))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================================================================
+.Figure: 2XXXXXX: TEST mode cases
+..Figure: 8XXXXXX: FAST mode cases
+..... .
+Done script_test_fcn_LoadRoster_sendEmail
+__________
+
+Failure Summary:
+
+     Name                                                            Failed  Incomplete  Reason(s)
+    ===============================================================================================
+     script_test_fcn_LoadRoster_sendEmail/DEMOCase_BasicExampleCall    X         X       Errored.

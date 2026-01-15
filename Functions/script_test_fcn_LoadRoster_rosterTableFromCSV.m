@@ -41,8 +41,9 @@ fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 
 % Load some test data
 CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = '';
 
-rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (figNum));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (figNum));
 
 sgtitle(titleString, 'Interpreter','none');
 
@@ -62,6 +63,36 @@ assert(height(rosterTable)==Nstudents);
 % % Make sure plot opened up
 % assert(isequal(get(gcf,'Number'),figNum));
 
+
+%% DEMO case: call the function with non-empty emailForAddedTestStudents
+figNum = 10002;
+titleString = sprintf('DEMO case: call the function with non-empty emailForAddedTestStudents');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+% figure(figNum); clf;
+
+% Load some test data
+CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = 'snb10@psu.edu';
+
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (figNum));
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(istable(rosterTable));
+
+% Check variable sizes
+Nstudents = 37;
+assert(height(rosterTable)==Nstudents);
+
+% % Check variable values
+% % Are the laps starting at expected points?
+% assert(isequal(2,min(cell_array_of_lap_indices{1})));
+% assert(isequal(102,min(cell_array_of_lap_indices{2})));
+% assert(isequal(215,min(cell_array_of_lap_indices{3})));
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,8 +146,9 @@ figure(figNum); close(figNum);
 
 % Load some test data
 CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = ''; 
 
-rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, ([]));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), ([]));
 
 % Check variable types
 assert(istable(rosterTable));
@@ -137,8 +169,9 @@ figure(figNum); close(figNum);
 
 % Load some test data
 CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = ''; 
 
-rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (-1));
+rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), (-1));
 
 % Check variable types
 assert(istable(rosterTable));
@@ -160,6 +193,7 @@ close(figNum);
 
 % Load some test data
 CSVPath = fcn_INTERNAL_loadExampleData_rosterTableFromCSV;
+emailForAddedTestStudents = ''; 
 
 Niterations = 10;
 
@@ -167,7 +201,7 @@ Niterations = 10;
 tic;
 for ith_test = 1:Niterations
     % Call the function
-    rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, ([]));
+    rosterTable = fcn_LoadRoster_rosterTableFromCSV(CSVPath, (emailForAddedTestStudents), ([]));
 end
 slow_method = toc;
 
